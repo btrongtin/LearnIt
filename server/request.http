@@ -1,0 +1,58 @@
+POST http://localhost:5000/api/auth/register
+Content-Type: application/json
+
+{
+    "username": "taikhoan2",
+    "password": "123456"
+}
+
+###
+
+POST http://localhost:5000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "buitrongtin2",
+    "password": "123456"
+}
+
+###
+POST http://localhost:5000/api/posts/
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTkzYTFiMWRjOTQ2Njg1YjkyZjNlMTUiLCJpYXQiOjE2Mzc2NDE2Njl9._Os8fZwv1OwhiBoWtlVq4JTuJF-I_9QaiKsFbdF1JXM
+
+{
+    "title": "HTML",
+    "description": "HTML hehehe",
+    "url" : "w3school.com",
+    "status": "LEARNED"
+}
+
+###
+GET http://localhost:5000/api/posts/
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTkzYTFiMWRjOTQ2Njg1YjkyZjNlMTUiLCJpYXQiOjE2Mzc5MjkwMjV9.hMPR-xXYx9MwkfkK_nHvxZ8Zbx0KRNRya1DU4LFXNMU
+
+###
+PUT http://localhost:5000/api/posts/619c6e099955833f0537062a
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTkzYTFiMWRjOTQ2Njg1YjkyZjNlMTUiLCJpYXQiOjE2Mzc2NDE2Njl9._Os8fZwv1OwhiBoWtlVq4JTuJF-I_9QaiKsFbdF1JXM
+
+{
+    "title": "HTML",
+    "description": "HTML hehe",
+    "url" : "w3school.com",
+    "status": "TO LEARN"
+}
+
+###
+
+DELETE http://localhost:5000/api/post/6193a7ceeec085e2809a2194
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTkzOWRjZGU3MzZjZWVhZWIxNTA2NzUiLCJpYXQiOjE2MzcxNTA2MjZ9.Y9gkzILUTnzOs1DyA_rfOvNPFRihJPRIjX_Kyb-rxT8
+
+###
+
+GET http://localhost:5000/api/statistic/
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTkzYTFiMWRjOTQ2Njg1YjkyZjNlMTUiLCJpYXQiOjE2Mzc5MjkwMjV9.hMPR-xXYx9MwkfkK_nHvxZ8Zbx0KRNRya1DU4LFXNMU
+
