@@ -3,8 +3,8 @@ const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
 const authRouter = require("./routes/auth");
-const postRouter = require("./routes/post");
-const statisticRouter = require("./routes/statistic");
+const postRouter = require("./routes/posts");
+const statisticRouter = require("./routes/statistic.js");
 
 const connectDB = async () => {
   try {

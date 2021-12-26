@@ -23,9 +23,9 @@ function App() {
               <Route path="/dashboard" element={<ProtectedRoute />}>
                 <Route path="/dashboard" element={<Dashboard />} />
               </Route>
-              <Route path="/about" element={<ProtectedRoute />}>
+              {/* <Route path="/about" element={<ProtectedRoute />}>
                 <Route path="/about" element={<About />} />
-              </Route>
+              </Route> */}
 
               <Route path="/statistic" element={<ProtectedRoute />}>
                 <Route path="/statistic" element={<Statistic />} />
