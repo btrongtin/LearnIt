@@ -31,7 +31,7 @@ Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTliO
 ###
 GET http://localhost:5000/api/posts/
 Content-Type: application/json
-Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTliODdmM2FhY2RmMjYzMmE3NTczYTIiLCJpYXQiOjE2Mzk2NTkyOTh9.-5Kbq-HzYA-bv36T-REk8QRFuLFakhT4oahqiM-A6R8
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTkzYTFiMWRjOTQ2Njg1YjkyZjNlMTUiLCJpYXQiOjE2Mzc5MjkwMjV9.hMPR-xXYx9MwkfkK_nHvxZ8Zbx0KRNRya1DU4LFXNMU
 
 ###
 PUT http://localhost:5000/api/posts/61bb372ea2ca0b0ddbde36c7
@@ -55,3 +55,27 @@ GET http://localhost:5000/api/statistic/
 Content-Type: application/json
 Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTkzYTFiMWRjOTQ2Njg1YjkyZjNlMTUiLCJpYXQiOjE2Mzc5MjkwMjV9.hMPR-xXYx9MwkfkK_nHvxZ8Zbx0KRNRya1DU4LFXNMU
 
+###
+GET http://localhost:5000/api/todo/6193a2de3e6c0215d98faa73
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTkzYTFiMWRjOTQ2Njg1YjkyZjNlMTUiLCJpYXQiOjE2Mzc5MjkwMjV9.hMPR-xXYx9MwkfkK_nHvxZ8Zbx0KRNRya1DU4LFXNMU
+
+###
+POST http://localhost:5000/api/todo/6193a2de3e6c0215d98faa73
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTkzYTFiMWRjOTQ2Njg1YjkyZjNlMTUiLCJpYXQiOjE2Mzc5MjkwMjV9.hMPR-xXYx9MwkfkK_nHvxZ8Zbx0KRNRya1DU4LFXNMU
+
+{
+    "title": "Test todo 33",
+    "isCompleted": "true"
+}
+
+###
+PUT http://localhost:5000/api/todo/6193a2de3e6c0215d98faa73/61ca8ba3f7772282933c86c4
+Content-Type: application/json
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTkzYTFiMWRjOTQ2Njg1YjkyZjNlMTUiLCJpYXQiOjE2Mzc5MjkwMjV9.hMPR-xXYx9MwkfkK_nHvxZ8Zbx0KRNRya1DU4LFXNMU
+
+
+###
+DELETE http://localhost:5000/api/todo/6193a2de3e6c0215d98faa73/61cafa024853d3f916e1dff9
+Authorization: BEARER eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MTkzYTFiMWRjOTQ2Njg1YjkyZjNlMTUiLCJpYXQiOjE2Mzc5MjkwMjV9.hMPR-xXYx9MwkfkK_nHvxZ8Zbx0KRNRya1DU4LFXNMU

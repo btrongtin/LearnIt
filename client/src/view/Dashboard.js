@@ -64,9 +64,9 @@ const Dashboard = () => {
   } else {
     body = (
       <>
-        <Row className="row-cols-1 row-cols-md-3 row-cols-sm-2 g-4 mx-auto mt-3">
+        <Row className="row mx-auto mt-3">
           {posts.map((post) => (
-            <Col className="my-3" key={post._id}>
+            <Col className="my-3" lg="4" md="6" xl="4" sm="6" key={post._id}>
               <SinglePost post={post} />
             </Col>
           ))}

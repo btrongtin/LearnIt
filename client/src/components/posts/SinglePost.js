@@ -6,7 +6,6 @@ import ActionButtons from "./ActionButtons";
 
 const SinglePost = ({ post: { _id, status, title, description, url } }) => (
   <Card
-    className="shadow"
     border={
       status === "LEARNED"
         ? "success"
@@ -14,11 +13,12 @@ const SinglePost = ({ post: { _id, status, title, description, url } }) => (
         ? "warning"
         : "danger"
     }
+    className="shadow h-100"
   >
     <Card.Body>
       <Card.Title>
         <Row>
-          <Col>
+          <Col md="6" sm="6" xs="6">
             <p className="post-title">{title}</p>
             <Badge
               pill
@@ -33,12 +33,14 @@ const SinglePost = ({ post: { _id, status, title, description, url } }) => (
               {status}
             </Badge>
           </Col>
-          <Col className="text-right">
-            <ActionButtons url={url} _id={_id} />
+          <Col md="6" sm="6" xs="6">
+            <div className="group-btn">
+              <ActionButtons url={url} _id={_id} />
+            </div>
           </Col>
         </Row>
       </Card.Title>
-      <Card.Text>{description}</Card.Text>
+      <Card.Text className="text-limit">{description}</Card.Text>
     </Card.Body>
   </Card>
 );

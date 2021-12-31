@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const cors = require("cors");
 const authRouter = require("./routes/auth");
 const postRouter = require("./routes/posts");
+const todoRouter = require("./routes/todo");
 const statisticRouter = require("./routes/statistic.js");
 
 const connectDB = async () => {
@@ -30,6 +31,7 @@ app.use(cors());
 app.use("/api/auth", authRouter);
 app.use("/api/posts", postRouter);
 app.use("/api/statistic", statisticRouter);
+app.use("/api/todo", todoRouter);
 
 const PORT = process.env.PORT || 5000;
 
