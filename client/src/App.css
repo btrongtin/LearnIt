@@ -1,3 +1,12 @@
+.text-limit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
 .landing {
   position: relative;
   background: url("./assets/landing.jpg") no-repeat center center/cover;
@@ -39,6 +48,16 @@
 }
 
 /* Post button */
+.group-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.group-btn button,
+.group-btn a {
+  padding: unset;
+}
+
 .post-button {
   padding-top: 0;
   background: transparent;
@@ -155,4 +174,25 @@ button.post-button.btn:active {
 .statistic-title {
   font-size: 1.5rem;
   font-weight: 500;
+}
+
+.list-group > .list-group-item > button {
+  float: right;
+}
+
+.list-group {
+  font-weight: bold;
+}
+
+.completed-item {
+  position: relative;
+}
+.completed-item::after {
+  border-bottom: 0.2rem solid var(--warning);
+  content: "";
+  left: 0;
+  line-height: 1em;
+  position: absolute;
+  right: 0;
+  top: 50%;
 }

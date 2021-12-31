@@ -1,8 +1,11 @@
 import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import { useContext, useState, useEffect } from "react";
+import InputGroup from "react-bootstrap/InputGroup";
+import { useContext, useState, useEffect, useRef } from "react";
 import { PostContext } from "../../contexts/PostContext";
+import ListTodo from "../../components/todo/ListTodo";
+import { TodoContext } from "../../contexts/TodoContext";
 
 const UpdatePostModal = () => {
   // Contexts
@@ -14,8 +17,16 @@ const UpdatePostModal = () => {
     setShowToast,
   } = useContext(PostContext);
 
+  const {
+    addTodo,
+    todoState: { todo },
+  } = useContext(TodoContext);
+
   // State
   const [updatedPost, setUpdatedPost] = useState(post);
+  const [newTodo, setNewTodo] = useState({
+    todo,
+  });
 
   useEffect(() => setUpdatedPost(post), [post]); //khi người dùng chọn post khác => setupdated post
 
@@ -23,9 +34,12 @@ const UpdatePostModal = () => {
 
   const onChangeUpdatedPostForm = (event) =>
     setUpdatedPost({ ...updatedPost, [event.target.name]: event.target.value });
+  const onChangeNewTodoForm = (event) =>
+    setNewTodo({ ...newTodo, title: event.target.value }); //computed property
 
   const closeDialog = () => {
     setUpdatedPost(post);
+    setNewTodo({ ...newTodo, title: "" });
     setShowUpdatePostModal(false);
   };
 
@@ -34,6 +48,15 @@ const UpdatePostModal = () => {
     const { success, message } = await updatePost(updatedPost);
     setShowUpdatePostModal(false);
     setShowToast({ show: true, message, type: success ? "success" : "danger" });
+  };
+
+  const inputRef = useRef();
+  const handleAddNewTodo = async (event) => {
+    event.preventDefault();
+    const { success, message } = await addTodo(newTodo, post._id);
+    //làm thêm gì ở đây nè
+    setNewTodo({ ...newTodo, title: "" });
+    inputRef.current.focus();
   };
 
   // const resetAddPostData = () => {
@@ -65,7 +88,7 @@ const UpdatePostModal = () => {
           <Form.Group>
             <Form.Control
               as="textarea"
-              rows={3}
+              rows={2}
               placeholder="Description"
               name="description"
               value={description}
@@ -93,6 +116,24 @@ const UpdatePostModal = () => {
               <option value="LEARNED">LEARNED</option>
             </Form.Control>
           </Form.Group>
+
+          <Form.Group>
+            <InputGroup className="mb-3">
+              <Form.Control
+                ref={inputRef}
+                type="text"
+                placeholder="Add new todo"
+                name="todo-title"
+                aria-describedby="todo-title-help"
+                value={newTodo.title}
+                onChange={onChangeNewTodoForm}
+              />
+              <Button variant="primary" onClick={handleAddNewTodo}>
+                Add
+              </Button>
+            </InputGroup>
+          </Form.Group>
+          <ListTodo postId={post._id} />
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={closeDialog}>

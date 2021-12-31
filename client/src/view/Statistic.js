@@ -36,9 +36,12 @@ const Statistic = () => {
       <>
         <div className="statistic">
           <p className="statistic-title">
-            Hello <span style={{ color: "var(--secondary)" }}>{username}</span>,
-            this is an overview of your learning status, keep calm and making
-            progress!
+            Hello{" "}
+            <span style={{ color: "var(--primary)", fontWeight: "bold" }}>
+              {username}
+            </span>
+            , this is an overview of your learning progress, keep calm and
+            making progress!
           </p>
         </div>
         <Row className="row-cols-1 row-cols-md-4 row-cols-sm-2 g-4 mx-auto mt-2">
